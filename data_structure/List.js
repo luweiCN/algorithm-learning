@@ -1,9 +1,13 @@
 class List {
-    constructor() {
-        this._dataSource = []; // 列表
+    constructor(arr = []) {
+        this._dataSource = Array.isArray(arr) ? arr.slice() : []; // 列表
         this._pos; // 列表的当前位置
         this.pos = 0; // 设置列表当前位置为0
     }
+
+    /**
+     * Properties
+     */
 
     // 列表的元素个数
     get size() {
@@ -28,6 +32,10 @@ class List {
             return this._pos;
         }
     }
+
+    /**
+     * Methods
+     */
 
     // 返回列表中元素的个数
     length = () => this.size;
@@ -68,16 +76,15 @@ class List {
     toString = () => this._dataSource.join(",");
 
     /**
-     * 把el插入到第一个after之后，成功返回true，失败返回false
+     * 把el插入到pos处
      * @param {*} el
-     * @param {*} after
+     * @param {*} pos
      */
-    insert = (el, after) => {
-        const pos = this.find(after);
-        if (pos === -1) {
+    insert = (el, pos = this.pos) => {
+        if (!Number.isInteger(pos) || pos < 0 || pos > this.size) {
             return false;
         } else {
-            this._dataSource.splice(pos + 1, 0, el);
+            this._dataSource.splice(pos, 0, el);
             return true;
         }
     };
@@ -95,10 +102,10 @@ class List {
     end = () => (this.pos = this.size - 1);
 
     // 将当前位置前移一位
-    prev = () => this.pos > 0 && --this.pos;
+    prev = () => --this.pos;
 
     // 将当前位置后移一位
-    next = () => this.pos < this.size - 1 && ++this.pos;
+    next = () => ++this.pos;
 
     // 返回当前位置的索引
     currPos = () => this.pos;
@@ -109,3 +116,5 @@ class List {
     // 返回当前位置对应的元素
     getElement = () => this._dataSource[this.pos];
 }
+
+export default List;
