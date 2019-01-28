@@ -33,6 +33,8 @@ class List {
         }
     }
 
+    [Symbol.iterator] = this.values;
+
     /**
      * Methods
      */
@@ -115,6 +117,19 @@ class List {
 
     // 返回当前位置对应的元素
     getElement = () => this._dataSource[this.pos];
+
+    // 值的迭代器
+    *values() {
+        this.front();
+        while (this.currPos() < this.size) {
+            yield this.getElement();
+            try {
+                this.next();
+            } catch (e) {
+                return;
+            }
+        }
+    }
 }
 
 export default List;

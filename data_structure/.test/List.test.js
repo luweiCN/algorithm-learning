@@ -144,3 +144,23 @@ test("method -> front, end, prev, next, currPos, moveTo, getElement: ", () => {
     expect(names.getElement()).toEqual(names_arr[names_arr.length - 1]);
     expect(names.next).toThrowError();
 });
+
+test("method *values and property Symbol.iterator : ", () => {
+    let names_list = new List(names_arr);
+    expect(names_list.values === names_list[Symbol.iterator]).toEqual(true);
+
+    let names = names_list.values();
+    names_arr.forEach(name => {
+        let next = names.next();
+        expect(next.done).toEqual(false);
+        expect(next.value === name).toEqual(true);
+    });
+
+    let end1 = names.next();
+    expect(end1.done).toEqual(true);
+    expect(end1.value).toBeUndefined();
+
+    let end2 = names.next();
+    expect(end2.done).toEqual(true);
+    expect(end2.value).toBeUndefined();
+});
