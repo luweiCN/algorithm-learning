@@ -1,4 +1,4 @@
-import List from "../List";
+import List from "./List";
 
 let names_arr = ["Clayton", "Raymond", "Cynthia", "Jennifer", "Bryan", "Danny"];
 
@@ -9,7 +9,7 @@ test("constructor: ", () => {
     expect(names._pos).toBe(0);
     expect(names.size).toBe(0);
 
-    // 传入一个数组时，会把数组中所有的元素去重加入List
+    // 传入一个数组时
     names = new List(names_arr);
     expect(names.size).toBe(names_arr.length);
 
