@@ -103,9 +103,29 @@ class List {
     }
 
     /**
+     * 在列表中查找el出现的位置
+     * @param {*} el 要查找的元素
+     * @param {boolean} [type=true] 是否要类型一致，默认为一致
+     * @returns {Array}
+     * @memberof List
+     */
+    findAll(el, type = true) {
+        return this._dataSource
+            .map((item, index) => {
+                if (type && item === el) {
+                    return index;
+                }
+                if (!type && item == el) {
+                    return index;
+                }
+            })
+            .filter(t => t !== undefined);
+    }
+
+    /**
      * 删除列表中的第一个el
      * @param {*} el 要删除的元素
-     * @returns {Boolean} 删除成功返回true，失败返回false
+     * @returns {Boolean} 删除成功返回true，失败返回false，删除失败包括el不存在于List内的情况
      * @memberof List
      */
     remove(el) {
@@ -116,6 +136,18 @@ class List {
             this._dataSource.splice(pos, 1);
             return true;
         }
+    }
+
+    /**
+     *  删除列表中所有的el
+     * @param {*} el 要删除的元素
+     * @param {boolean} [type=true] 是否要类型一致，默认为一致
+     * @memberof List
+     */
+    removeAll(el, type = true) {
+        this._dataSource = type
+            ? this._dataSource.filter(item => item !== el)
+            : this._dataSource.filter(item => item != el);
     }
 
     /**
@@ -190,7 +222,7 @@ class List {
      * @memberof List
      */
     currPos() {
-        this.pos;
+        return this.pos;
     }
 
     /**

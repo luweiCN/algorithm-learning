@@ -1,6 +1,8 @@
 import List from "./List";
 
 let names_arr = ["Clayton", "Raymond", "Cynthia", "Jennifer", "Bryan", "Danny"];
+// prettier-ignore
+let cases_arr = [ 0, "0", false, undefined, null, "", "luwei", 0, "0", false, undefined, null, "", "luwei"];
 
 test("constructor: ", () => {
     // 不传参数时，列表为空
@@ -65,6 +67,40 @@ test("method -> find: ", () => {
     });
 });
 
+test("method -> findAll: ", () => {
+    let tests = new List();
+    expect(tests.findAll("luwei")).toEqual([]);
+
+    let names = new List(names_arr);
+    names_arr.forEach((name, index) => {
+        expect(names.findAll(name)).toEqual([index]);
+    });
+
+    tests = new List(cases_arr);
+    cases_arr.forEach((c, index) => {
+        expect(tests.findAll(c)).toEqual(
+            index <= 6 ? [index, index + 7] : [index - 7, index]
+        );
+    });
+
+    // 类型可以不一致的情况
+
+    // prettier-ignore
+    expect(tests.findAll(cases_arr[0], false)).toEqual([0, 1, 2, 5, 7, 8, 9, 12]);
+    // prettier-ignore
+    expect(tests.findAll(cases_arr[1], false)).toEqual([0, 1, 2, 7, 8, 9]);
+    // prettier-ignore
+    expect(tests.findAll(cases_arr[2], false)).toEqual([0, 1, 2, 5, 7, 8, 9, 12]);
+    // prettier-ignore
+    expect(tests.findAll(cases_arr[3], false)).toEqual([3, 4, 10, 11]);
+    // prettier-ignore
+    expect(tests.findAll(cases_arr[4], false)).toEqual([3, 4, 10, 11]);
+    // prettier-ignore
+    expect(tests.findAll(cases_arr[5], false)).toEqual([0, 2, 5, 7, 9, 12]);
+    // prettier-ignore
+    expect(tests.findAll(cases_arr[6], false)).toEqual([6, 13]);
+});
+
 test("method -> remove: ", () => {
     let names = new List();
     names_arr.forEach(name => {
@@ -78,17 +114,23 @@ test("method -> remove: ", () => {
         expect(names.find(name)).toEqual(-1);
     });
 });
-test("method -> remove: ", () => {
-    let names = new List();
-    names_arr.forEach(name => {
-        expect(names.remove(name)).toEqual(false);
+
+test("method -> removeAll: ", () => {
+    cases_arr.forEach((c, index) => {
+        let tests = new List(cases_arr);
+        tests.removeAll(c);
+        expect(tests._dataSource).toEqual(
+            index <= 6
+                ? cases_arr.filter((t, i) => ![index, index + 7].includes(i))
+                : cases_arr.filter((t, i) => ![index - 7, index].includes(i))
+        );
     });
 
-    names = new List(names_arr);
-    names_arr.forEach(name => {
-        expect(names.find(name)).not.toEqual(-1);
-        expect(names.remove(name)).toEqual(true);
-        expect(names.find(name)).toEqual(-1);
+    // 类型可以不一致的情况
+    cases_arr.forEach(item => {
+        let tests = new List(cases_arr);
+        tests.removeAll(item, false);
+        expect(tests._dataSource).toEqual(cases_arr.filter(t => t != item));
     });
 });
 

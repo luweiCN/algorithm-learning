@@ -26,7 +26,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="List.html">List</a><ul class='methods'><li data-type='method'><a href="List.html#append">append</a></li><li data-type='method'><a href="List.html#clear">clear</a></li><li data-type='method'><a href="List.html#contains">contains</a></li><li data-type='method'><a href="List.html#currPos">currPos</a></li><li data-type='method'><a href="List.html#end">end</a></li><li data-type='method'><a href="List.html#find">find</a></li><li data-type='method'><a href="List.html#front">front</a></li><li data-type='method'><a href="List.html#getElement">getElement</a></li><li data-type='method'><a href="List.html#insert">insert</a></li><li data-type='method'><a href="List.html#length">length</a></li><li data-type='method'><a href="List.html#moveTo">moveTo</a></li><li data-type='method'><a href="List.html#next">next</a></li><li data-type='method'><a href="List.html#prev">prev</a></li><li data-type='method'><a href="List.html#remove">remove</a></li><li data-type='method'><a href="List.html#toString">toString</a></li><li data-type='method'><a href="List.html#values">values</a></li></ul></li><li><a href="Stack.html">Stack</a><ul class='methods'><li data-type='method'><a href="Stack.html#clear">clear</a></li><li data-type='method'><a href="Stack.html#peak">peak</a></li><li data-type='method'><a href="Stack.html#pop">pop</a></li><li data-type='method'><a href="Stack.html#push">push</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="List.html">List</a><ul class='methods'><li data-type='method'><a href="List.html#append">append</a></li><li data-type='method'><a href="List.html#clear">clear</a></li><li data-type='method'><a href="List.html#contains">contains</a></li><li data-type='method'><a href="List.html#currPos">currPos</a></li><li data-type='method'><a href="List.html#end">end</a></li><li data-type='method'><a href="List.html#find">find</a></li><li data-type='method'><a href="List.html#findAll">findAll</a></li><li data-type='method'><a href="List.html#front">front</a></li><li data-type='method'><a href="List.html#getElement">getElement</a></li><li data-type='method'><a href="List.html#insert">insert</a></li><li data-type='method'><a href="List.html#length">length</a></li><li data-type='method'><a href="List.html#moveTo">moveTo</a></li><li data-type='method'><a href="List.html#next">next</a></li><li data-type='method'><a href="List.html#prev">prev</a></li><li data-type='method'><a href="List.html#remove">remove</a></li><li data-type='method'><a href="List.html#removeAll">removeAll</a></li><li data-type='method'><a href="List.html#toString">toString</a></li><li data-type='method'><a href="List.html#values">values</a></li></ul></li><li><a href="Stack.html">Stack</a><ul class='methods'><li data-type='method'><a href="Stack.html#clear">clear</a></li><li data-type='method'><a href="Stack.html#peak">peak</a></li><li data-type='method'><a href="Stack.html#pop">pop</a></li><li data-type='method'><a href="Stack.html#push">push</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -865,7 +865,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line152">line 152</a>
+        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line184">line 184</a>
     </li></ul></dd>
     
 
@@ -1016,7 +1016,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line192">line 192</a>
+        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line224">line 224</a>
     </li></ul></dd>
     
 
@@ -1100,7 +1100,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line168">line 168</a>
+        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line200">line 200</a>
     </li></ul></dd>
     
 
@@ -1323,6 +1323,212 @@
 
     
 
+    <h4 class="name" id="findAll"><span class="type-signature"></span>findAll<span class="signature">(el, type<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line112">line 112</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>在列表中查找el出现的位置</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>el</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>要查找的元素</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>true</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>是否要类型一致，默认为一致</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
     <h4 class="name" id="front"><span class="type-signature"></span>front<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
@@ -1335,7 +1541,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line160">line 160</a>
+        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line192">line 192</a>
     </li></ul></dd>
     
 
@@ -1419,7 +1625,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line210">line 210</a>
+        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line242">line 242</a>
     </li></ul></dd>
     
 
@@ -1525,7 +1731,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line137">line 137</a>
+        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line169">line 169</a>
     </li></ul></dd>
     
 
@@ -1837,7 +2043,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line201">line 201</a>
+        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line233">line 233</a>
     </li></ul></dd>
     
 
@@ -1970,7 +2176,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line184">line 184</a>
+        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line216">line 216</a>
     </li></ul></dd>
     
 
@@ -2054,7 +2260,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line176">line 176</a>
+        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line208">line 208</a>
     </li></ul></dd>
     
 
@@ -2138,7 +2344,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line111">line 111</a>
+        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line131">line 131</a>
     </li></ul></dd>
     
 
@@ -2256,7 +2462,7 @@
 
         
 <div class="param-desc">
-    <p>删除成功返回true，失败返回false</p>
+    <p>删除成功返回true，失败返回false，删除失败包括el不存在于List内的情况</p>
 </div>
 
 
@@ -2281,6 +2487,194 @@
 
     
 
+    <h4 class="name" id="removeAll"><span class="type-signature"></span>removeAll<span class="signature">(el, type<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line147">line 147</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>删除列表中所有的el</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>el</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>要删除的元素</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>true</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>是否要类型一致，默认为一致</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="toString"><span class="type-signature"></span>toString<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span></h4>
 
     
@@ -2293,7 +2687,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line126">line 126</a>
+        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line158">line 158</a>
     </li></ul></dd>
     
 
@@ -2399,7 +2793,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line219">line 219</a>
+        <a href="List_List.js.html">List/List.js</a>, <a href="List_List.js.html#line251">line 251</a>
     </li></ul></dd>
     
 
@@ -2486,7 +2880,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jan 29 2019 23:04:17 GMT+0800 (中国标准时间) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Jan 30 2019 13:11:48 GMT+0800 (中国标准时间) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
