@@ -19,8 +19,7 @@ class List {
          * 列表当前位置(私有变量)
          * @member {Number}
          */
-        this._pos; // 列表的当前位置
-        this.pos = 0; // 设置列表当前位置为0
+        this._pos = 0; // 列表的当前位置
     }
 
     /**
@@ -55,7 +54,6 @@ class List {
             throw new TypeError("position overflow the range of the List");
         } else {
             this._pos = position;
-            return this._pos;
         }
     }
 
@@ -245,8 +243,9 @@ class List {
 
     /**
      * 值的迭代器
-     * @type {Generator}
+     * @generator
      * @memberof List
+     * @yields List元素
      */
     *values() {
         this.front();

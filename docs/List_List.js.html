@@ -1,40 +1,73 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="utf-8">
-    <title>List/List.js - Documentation</title>
-    
-    
+    <title>学习数据结构和算法: List/List.js</title>
+
+
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Muli:100,400,700|Oswald:300|Inconsolata,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/app.min.css">
 </head>
+
 <body>
-
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x">
-  <div class="navicon"></div>
-</label>
-
-<label for="nav-trigger" class="overlay"></label>
-
-<nav >
-    
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="List.html">List</a><ul class='methods'><li data-type='method'><a href="List.html#append">append</a></li><li data-type='method'><a href="List.html#clear">clear</a></li><li data-type='method'><a href="List.html#contains">contains</a></li><li data-type='method'><a href="List.html#currPos">currPos</a></li><li data-type='method'><a href="List.html#end">end</a></li><li data-type='method'><a href="List.html#find">find</a></li><li data-type='method'><a href="List.html#findAll">findAll</a></li><li data-type='method'><a href="List.html#front">front</a></li><li data-type='method'><a href="List.html#getElement">getElement</a></li><li data-type='method'><a href="List.html#insert">insert</a></li><li data-type='method'><a href="List.html#length">length</a></li><li data-type='method'><a href="List.html#moveTo">moveTo</a></li><li data-type='method'><a href="List.html#next">next</a></li><li data-type='method'><a href="List.html#prev">prev</a></li><li data-type='method'><a href="List.html#remove">remove</a></li><li data-type='method'><a href="List.html#removeAll">removeAll</a></li><li data-type='method'><a href="List.html#toString">toString</a></li><li data-type='method'><a href="List.html#values">values</a></li></ul></li><li><a href="Stack.html">Stack</a><ul class='methods'><li data-type='method'><a href="Stack.html#clear">clear</a></li><li data-type='method'><a href="Stack.html#peak">peak</a></li><li data-type='method'><a href="Stack.html#pop">pop</a></li><li data-type='method'><a href="Stack.html#push">push</a></li></ul></li></ul>
-</nav>
-
-<div id="main">
-    
-    <h1 class="page-title">List/List.js</h1>
-    
-
-    
+    <div id="stickyNavbarOverlay"></div>
+    <div class="top-navbar">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                     
+                        <img src="logo.png" alt="logo">
+                    
+                     
+                        <h1 class="navbar-item">学习数据结构和算法</h1>
+                    
+                    <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                 
+                <div class="navbar-menu">
+                    <div class="navbar-end">
+                    
+                        <div class="navbar-item">
+                            <a href="https://github.com/luweiCN/algorithm-learning" target="_blank">Github</a>
+                        </div>
+                    
+                    </div>
+                </div>
+                
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <div class="columns">
+            <div class="column is-3" id="sidebarNav">
+                <div class="sidebar">
+                    <nav>
+                        <h2><a href="index.html">Home</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="List.html">List</a></li><li><a href="Stack.html">Stack</a></li></ul></div>
+                    </nav>
+                </div>
+            </div>
+            <div class="column is-9-desktop">
+                <div class="content" id="main-content-wrapper">
+                    <header class="page-title">
+                        <p>Source</p>
+                        <h1>List/List.js</h1>
+                    </header>
+                    
+                    
 
 
 
@@ -62,8 +95,7 @@ class List {
          * 列表当前位置(私有变量)
          * @member {Number}
          */
-        this._pos; // 列表的当前位置
-        this.pos = 0; // 设置列表当前位置为0
+        this._pos = 0; // 列表的当前位置
     }
 
     /**
@@ -98,7 +130,6 @@ class List {
             throw new TypeError("position overflow the range of the List");
         } else {
             this._pos = position;
-            return this._pos;
         }
     }
 
@@ -288,8 +319,9 @@ class List {
 
     /**
      * 值的迭代器
-     * @type {Generator}
+     * @generator
      * @memberof List
+     * @yields List元素
      */
     *values() {
         this.front();
@@ -312,19 +344,28 @@ export default List;
 
 
 
-    
-    
-</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<br class="clear">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Jan 30 2019 13:11:48 GMT+0800 (中国标准时间) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Jan 30 2019 20:08:39 GMT+0800 (中国标准时间)</p>
+        <p class="sidebar-created-by">
+            <a href="https://github.com/luweiCN/better-docs2" target="_blank">BetterDocs2 theme</a> provided with <i class="fas fa-heart"></i> by 
+            <a href="https://github.com/luweiCN" target="_blank">luweiCN</a>
+        </p>
+        <p class="sidebar-created-by">
+            <a href="https://github.com/luweiCN/better-docs2" target="_blank">BetterDocs2 theme</a> provided with <i class="fas fa-heart"></i> based on
+            <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+            <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers</a>
+        </p>
+    </div>
 </footer>
 
-<script>prettyPrint();</script>
-<script src="scripts/linenumber.js"></script>
-
-
+<script> prettyPrint(); </script>
+<script src="scripts/app.min.js"></script>
+<script src="scripts/linenumber.js"> </script>
 </body>
 </html>

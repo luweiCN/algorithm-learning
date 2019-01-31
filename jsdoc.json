@@ -1,16 +1,21 @@
 {
     "tags": {
-        "allowUnknownTags": false
+        "allowUnknownTags": true
     },
     "source": {
         "include": ["data_structure"],
         "includePattern": ".+\\.js(doc|x)?$",
         "excludePattern": ".+\\.test.js$"
     },
-    "plugins": ["plugins/markdown"],
+    "plugins": [
+        "plugins/markdown",
+        "node_modules/better-docs2/category",
+        "jsdoc-mermaid"
+    ],
     "opts": {
-        "template": "node_modules/docdash",
+        "template": "node_modules/better-docs2",
         "encoding": "utf8",
+        "readme": "readme.md",
         "destination": "docs/",
         "recurse": true,
         "verbose": true
@@ -18,5 +23,66 @@
     "templates": {
         "cleverLinks": false,
         "monospaceLinks": false
+    },
+    "docdash": {
+        "static": true,
+        "sort": false,
+        "sectionOrder": [
+            "Classes",
+            "Modules",
+            "Externals",
+            "Events",
+            "Namespaces",
+            "Mixins",
+            "Tutorials",
+            "Interfaces"
+        ],
+        "disqus": "",
+        "openGraph": {
+            "title": "学习数据结构和算法",
+            "type": "website",
+            "image": "",
+            "site_name": "学习数据结构和算法",
+            "url": ""
+        },
+        "meta": {
+            "title": "学习数据结构和算法",
+            "description": "学习数据结构和算法",
+            "keyword": "学习数据结构和算法"
+        },
+        "search": false,
+        "collapse": true,
+        "wrap": false,
+        "typedefs": true,
+        "navLevel": 10,
+        "private": true,
+        "scripts": [],
+        "menu": {
+            "Github repo": {
+                "href": "https://github.com/luweiCN/algorithm-learning",
+                "target": "_blank",
+                "class": "menu-item",
+                "id": "github_link"
+            }
+        }
+    },
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false,
+        "default": {
+            "staticFiles": {
+                "include": ["./logo.png"]
+            }
+        },
+        "better-docs": {
+            "name": "学习数据结构和算法",
+            "logo": "logo.png",
+            "navigation": [
+                {
+                    "label": "Github",
+                    "href": "https://github.com/luweiCN/algorithm-learning"
+                }
+            ]
+        }
     }
 }
