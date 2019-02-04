@@ -49,6 +49,14 @@ test("property -> empty: ", () => {
     });
 });
 
+test("method -> toString: ", () => {
+    let names = new Stack();
+    expect(names.toString()).toEqual("");
+    names = new Stack(names_arr);
+    expect(names.toString()).toEqual(names_arr.join("->"));
+    expect(names.toString("-")).toEqual(names_arr.join("-"));
+});
+
 test("method -> push: ", () => {
     let stack = new Stack();
     names_arr.forEach((name, index) => {

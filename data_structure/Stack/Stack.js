@@ -48,6 +48,16 @@ class Stack {
     }
 
     /**
+     * @description 栈的字符串形式
+     * @param {string} [separator='->'] 指定连接栈的字符串
+     * @returns {String} 列表栈
+     * @memberof Queue
+     */
+    toString(separator = "->") {
+        return this._dataSource.join(separator);
+    }
+
+    /**
      * @description 入栈
      * @param {*} el 入栈元素
      * @memberof Stack

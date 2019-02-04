@@ -1,10 +1,7 @@
 {
     "root": true,
-
     "parser": "babel-eslint",
-
     "plugins": ["import"],
-
     "env": {
         "browser": true,
         "commonjs": true,
@@ -12,7 +9,6 @@
         "jest": true,
         "node": true
     },
-
     "parserOptions": {
         "ecmaVersion": 6,
         "sourceType": "module",
@@ -21,7 +17,6 @@
             "experimentalObjectRestSpread": true
         }
     },
-
     "settings": {
         "import/ignore": ["node_modules"],
         "import/extensions": [".js"],
@@ -31,9 +26,7 @@
             }
         }
     },
-
     "rules": {
-        // http://eslint.org/docs/rules/
         "array-callback-return": "warn",
         "default-case": ["warn", { "commentPattern": "^no default$" }],
         "dot-location": ["warn", "property"],
@@ -142,35 +135,6 @@
         "unicode-bom": ["warn", "never"],
         "use-isnan": "warn",
         "valid-typeof": "warn",
-
-        // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/
-
-        // TODO: import rules are temporarily disabled because they don't play well
-        // with how eslint-loader only checks the file you change. So if module A
-        // imports module B, and B is missing a default export, the linter will
-        // record this as an issue in module A. Now if you fix module B, the linter
-        // will not be aware that it needs to re-lint A as well, so the error
-        // will stay until the next restart, which is really confusing.
-
-        // This is probably fixable with a patch to eslint-loader.
-        // When file A is saved, we want to invalidate all files that import it
-        // *and* that currently have lint errors. This should fix the problem.
-        // (As an exception, import/no-webpack-loader-syntax can be enabled already
-        // because it doesn't depend on whether the file exists, so this issue
-        // doesn't apply to it.)
-
-        // 'import/default': 'warn',
-        // 'import/export': 'warn',
-        // 'import/named': 'warn',
-        // 'import/namespace': 'warn',
-        // 'import/no-amd': 'warn',
-        // 'import/no-duplicates': 'warn',
-        // 'import/no-extraneous-dependencies': 'warn',
-        // 'import/no-named-as-default': 'warn',
-        // 'import/no-named-as-default-member': 'warn',
-        // 'import/no-unresolved': ['warn', { commonjs: true }],
-        // We don't support configuring Webpack using import source strings, so this
-        // is always an error.
         "import/no-webpack-loader-syntax": "error"
     }
 }

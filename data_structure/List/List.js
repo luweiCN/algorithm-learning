@@ -149,12 +149,13 @@ class List {
     }
 
     /**
-     * 列表的字符串形式
-     * @returns {String} 返回当前列表的字符串形式，元素之间用逗号连接
-     * @memberof List
+     * @description 列表的字符串形式
+     * @param {string} [separator=','] 指定连接列表的字符串
+     * @returns {String} 列表字符串
+     * @memberof Queue
      */
-    toString() {
-        return this._dataSource.join(",");
+    toString(separator = ",") {
+        return this._dataSource.join(separator);
     }
 
     /**

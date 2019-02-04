@@ -138,7 +138,8 @@ test("method -> toString: ", () => {
     let names = new List();
     expect(names.toString()).toEqual("");
     names = new List(names_arr);
-    expect(names.toString()).toEqual(names_arr.toString());
+    expect(names.toString()).toEqual(names_arr.join());
+    expect(names.toString("-")).toEqual(names_arr.join("-"));
 });
 
 test("method -> insert: ", () => {
