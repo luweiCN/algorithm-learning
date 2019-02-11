@@ -79,7 +79,7 @@ class Queue {
 
     /**
      * @description 显示队列的字符串形式
-     * @param {string} [separator='->'] 指定连接队列的字符串
+     * @param {string} [separator='->'] 指定连接队列的连接串
      * @returns {String} 队列字符串
      * @memberof Queue
      */

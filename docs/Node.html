@@ -1,10 +1,8 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>学习数据结构和算法: Stack/Stack.js</title>
+    <title>学习数据结构和算法: Node</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -62,116 +60,160 @@
             <div class="column is-9-desktop">
                 <div class="content" id="main-content-wrapper">
                     <header class="page-title">
-                        <p>Source</p>
-                        <h1>Stack/Stack.js</h1>
+                        <p>Class</p>
+                        <h1>Node</h1>
                     </header>
                     
                     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @classdesc 栈的JavaScript实现
- * @class
- */
-class Stack {
-    /**
-     * 创建Stack的实例
-     * @param {*} [arr=[]] 参数可与为任意类型，但只有数组有效，其他类型等同于空数组
-     * @constructor
-     * @memberof Stack
-     */
-    constructor(arr = []) {
-        /**
-         * 栈底层数据结构
-         * @member {Array}
-         */
-        this._dataSource = Array.isArray(arr) ? arr.slice() : [];
-    }
+        <h2><span class="attribs"><span class="type-signature"></span></span>Node<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>链表节点的JavaScript实现</p></div>
+        
+    
+</header>
 
-    /**
-     * 栈长
-     * @readonly
-     * @memberof Stack
-     * @type { Number }
-     */
-    get length() {
-        return this._dataSource.length;
-    }
+<article>
+    <div class="container-overview">
+    
+        
+            <div class='vertical-section'>
+                <h3 class="title"><span>Constructor</span></h3>
+                <div class="members">
+                    <div class="member">
 
-    /**
-     * 栈顶,栈为空时top为-1
-     * @readonly
-     * @type { Number }
-     * @memberof Stack
-     */
-    get top() {
-        return this._dataSource.length - 1;
-    }
+    
+    <h4 class="name" id="Node">
+        
+        <span class="code-name">
+            new Node<span class="signature">()</span><span class="type-signature"></span>
+        </span>
+    </h4>
+    
 
-    /**
-     * @description 栈是否为空
-     * @readonly
-     * @type { Boolean }
-     * @memberof Stack
-     */
-    get empty() {
-        return this.length &lt;= 0;
-    }
+    
+    
+    <div class="description">
+        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    </div>
+    
 
-    /**
-     * @description 栈的字符串形式
-     * @param {string} [separator='->'] 指定连接栈的字符串
-     * @returns {String} 列表栈
-     * @memberof Queue
-     */
-    toString(separator = "->") {
-        return this._dataSource.join(separator);
-    }
 
-    /**
-     * @description 入栈
-     * @param {*} el 入栈元素
-     * @memberof Stack
-     */
-    push(el) {
-        this._dataSource.push(el);
-    }
 
-    /**
-     * @description 出栈
-     * @returns {Any | undefined} 返回出栈的元素，栈为空时返回undefined
-     * @memberof Stack
-     */
-    pop() {
-        return this._dataSource.pop();
-    }
 
-    /**
-     * @description 查看栈顶元素
-     * @returns {Any | undefined} 返回栈顶元素，栈为空时返回undefined
-     * @memberof Stack
-     */
-    peak() {
-        return this.top !== -1 ? this._dataSource[this.top] : undefined;
-    }
 
-    /**
-     * @description 清空栈
-     * @memberof Stack
-     */
-    clear() {
-        this._dataSource = [];
-    }
-}
 
-export default Stack;
-</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="LinkedList_Node.js.html" class="button">View Source</a>
+            <span>
+                <a href="LinkedList_Node.js.html">LinkedList/Node.js</a>, <a href="LinkedList_Node.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </div>
+            </div>
+        
+    
+    </div>
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="Node.Node.html">Node</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

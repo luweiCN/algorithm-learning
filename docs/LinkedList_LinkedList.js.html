@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>学习数据结构和算法: Stack/Stack.js</title>
+    <title>学习数据结构和算法: LinkedList/LinkedList.js</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -63,7 +63,7 @@
                 <div class="content" id="main-content-wrapper">
                     <header class="page-title">
                         <p>Source</p>
-                        <h1>Stack/Stack.js</h1>
+                        <h1>LinkedList/LinkedList.js</h1>
                     </header>
                     
                     
@@ -73,102 +73,107 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @classdesc 栈的JavaScript实现
- * @class
- */
-class Stack {
+            <pre class="prettyprint source linenums"><code>import Node from "./Node";
+
+const head = Symbol("head");
+
+class LinkedList {
     /**
-     * 创建Stack的实例
-     * @param {*} [arr=[]] 参数可与为任意类型，但只有数组有效，其他类型等同于空数组
-     * @constructor
-     * @memberof Stack
+     * 创建LinkedList的实例，链表只需要一个属性来保存头结点
+     * @memberof LinkedList
      */
-    constructor(arr = []) {
-        /**
-         * 栈底层数据结构
-         * @member {Array}
-         */
-        this._dataSource = Array.isArray(arr) ? arr.slice() : [];
+    constructor() {
+        this.head = new Node(head);
     }
 
     /**
-     * 栈长
-     * @readonly
-     * @memberof Stack
-     * @type { Number }
+     * 查找存储给定元素的节点（在链表上移动的方式，当未找到时，返回最后一个节点）
+     * @param {*} item 需要查找的元素
+     * @returns { Node } Node类型的节点
+     * @memberof LinkedList
      */
-    get length() {
-        return this._dataSource.length;
+    find(item) {
+        let currentNode = this.head;
+        while (
+            currentNode &amp;&amp;
+            currentNode.next &amp;&amp;
+            currentNode.element !== item
+        ) {
+            currentNode = currentNode.next;
+        }
+        return currentNode;
     }
 
     /**
-     * 栈顶,栈为空时top为-1
-     * @readonly
-     * @type { Number }
-     * @memberof Stack
+     * 在链表中存储 item 的节点后插入存储 newElement 的节点(若item不存在于链表，则把newElement插入到链表最后)
+     * @param {*} newElement 要插入的元素
+     * @param {*} item 要插入在该元素的后面，默认为head(Symbol类型),表示头节点
+     * @memberof LinkedList
      */
-    get top() {
-        return this._dataSource.length - 1;
+    insert(newElement, item) {
+        let newNode = new Node(newElement);
+        let currentNode = this.find(item);
+        newNode.next = currentNode.next;
+        currentNode.next = newNode;
     }
 
     /**
-     * @description 栈是否为空
-     * @readonly
-     * @type { Boolean }
-     * @memberof Stack
+     * 链表的默认迭代器，使其支持 for...of 循环
+     * @memberof LinkedList
      */
-    get empty() {
-        return this.length &lt;= 0;
+    *[Symbol.iterator]() {
+        let currentNode = this.head;
+        while (currentNode.next !== null) {
+            yield currentNode.next;
+            currentNode = currentNode.next;
+        }
     }
 
     /**
-     * @description 栈的字符串形式
-     * @param {string} [separator='->'] 指定连接栈的字符串
-     * @returns {String} 列表栈
-     * @memberof Queue
+     * @description 显示链表的字符串形式
+     * @param {string} [separator='->'] 指定连接链表的连接串
+     * @returns {String} 链表字符串
+     * @memberof LinkedList
      */
     toString(separator = "->") {
-        return this._dataSource.join(separator);
+        let linkList = [];
+        for (let item of this) {
+            linkList.push(item.element);
+        }
+        return linkList.join(separator);
     }
 
     /**
-     * @description 入栈
-     * @param {*} el 入栈元素
-     * @memberof Stack
+     * @description 根据元素查找该元素对应节点的前一个节点（当该节点不存在时，返回最后一个节点）
+     * @param { * } 要查找的元素
+     * @returns { Node } Node类型的节点
+     * @memberof LinkedList
      */
-    push(el) {
-        this._dataSource.push(el);
+    findPrevious(item) {
+        let previousNode = this.head;
+        while (previousNode.next &amp;&amp; previousNode.next.element !== item) {
+            previousNode = previousNode.next;
+        }
+        return previousNode;
     }
 
     /**
-     * @description 出栈
-     * @returns {Any | undefined} 返回出栈的元素，栈为空时返回undefined
-     * @memberof Stack
+     * @description 根据元素删除对应节点
+     * @param { * } 要删除的元素
+     * @returns { Boolean } 成功返回true，失败返回false
+     * @memberof LinkedList
      */
-    pop() {
-        return this._dataSource.pop();
-    }
-
-    /**
-     * @description 查看栈顶元素
-     * @returns {Any | undefined} 返回栈顶元素，栈为空时返回undefined
-     * @memberof Stack
-     */
-    peak() {
-        return this.top !== -1 ? this._dataSource[this.top] : undefined;
-    }
-
-    /**
-     * @description 清空栈
-     * @memberof Stack
-     */
-    clear() {
-        this._dataSource = [];
+    remove(item) {
+        let previousNode = this.findPrevious(item);
+        if (previousNode.next !== null) {
+            previousNode.next = previousNode.next.next;
+            return true;
+        }
+        return false;
     }
 }
 
-export default Stack;
+export default LinkedList;
 </code></pre>
         </article>
     </section>
