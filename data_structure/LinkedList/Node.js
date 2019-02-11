@@ -1,6 +1,6 @@
 /**
  * @classdesc 链表节点的JavaScript实现
- * @class Node
+ * @class
  */
 class Node {
     /**

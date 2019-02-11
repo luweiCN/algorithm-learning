@@ -2,6 +2,10 @@ import Node from "./Node";
 
 const head = Symbol("head");
 
+/**
+ * @classdesc 链表的JavaScript实现
+ * @class
+ */
 class LinkedList {
     /**
      * 创建LinkedList的实例，链表只需要一个属性来保存头结点
