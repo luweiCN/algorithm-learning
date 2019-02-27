@@ -1,5 +1,5 @@
 /**
- * @classdesc 栈的JavaScript实现
+ * @classdesc 列表的JavaScript实现
  * @class
  */
 class List {

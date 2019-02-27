@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>学习数据结构和算法: Queue/Queue.js</title>
+    <title>学习数据结构和算法: Dictionary/Dictionary.js</title>
 
 
     <script src="scripts/prettify/prettify.js"></script>
@@ -64,7 +64,7 @@
                 <div class="content" id="main-content-wrapper">
                     <header class="page-title">
                         <p>Source</p>
-                        <h1>Queue/Queue.js</h1>
+                        <h1>Dictionary/Dictionary.js</h1>
                     </header>
                     
                     
@@ -75,104 +75,110 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @classdesc 队列的JavaScript实现
+ * @classdesc 字典的JavaScript实现
  * @class
  */
-class Queue {
+class Dictionary {
     /**
-     * 创建Queue的实例
-     * @param {*} [arr=[]] 参数可与为任意类型，但只有数组有效，其他类型等同于空数组
+     * 创建Stack的实例
      * @constructor
-     * @memberof Queue
+     * @memberof Dictionary
      */
-    constructor(arr = []) {
+    constructor() {
         /**
-         * 队列底层数据结构
+         * 字典的底层数据结构
          * @member {Array}
          */
-        this._dataSource = Array.isArray(arr) ? arr.slice() : [];
+        this._dataSource = new Array();
     }
 
     /**
-     * 队列长度
+     * 字典的元素个数
      * @readonly
-     * @memberof Queue
-     * @type { Number }
+     * @memberof Dictionary
      */
-    get length() {
-        return this._dataSource.length;
+    get size() {
+        return Object.keys(this._dataSource).length;
     }
 
     /**
-     * @description 队列是否为空
-     * @readonly
-     * @type { Boolean }
-     * @memberof Queue
+     * 字典的默认迭代器，会按照字典元素的添加顺序显示
+     * @memberof Dictionary
      */
-    get empty() {
-        return this.length &lt;= 0;
-    }
+    [Symbol.iterator] = this.values;
 
     /**
-     * 读取队首元素，队列为空时返回undefined
-     * @readonly
-     * @return { * }
-     * @memberof Queue
-     */
-    get head() {
-        return this._dataSource.length ? this._dataSource[0] : undefined;
-    }
-
-    /**
-     * 读取队尾元素，队列为空时返回undefined
-     * @readonly
-     * @return { * }
-     * @memberof Queue
-     */
-    get tail() {
-        return this._dataSource.length
-            ? this._dataSource[this.length - 1]
-            : undefined;
-    }
-
-    /**
-     * @description 方法向队尾添加一个元素
-     * @param {*} el 要添加的元素
-     * @memberof Queue
-     */
-    enqueue(el) {
-        this._dataSource.push(el);
-    }
-
-    /**
-     * @description 删除队首的元素
-     * @returns {Any | undefined} 返回删除的元素，队列为空时返回undefined
-     * @memberof Queue
-     */
-    dequeue() {
-        return this._dataSource.shift();
-    }
-
-    /**
-     * @description 显示队列的字符串形式
-     * @param {string} [separator='->'] 指定连接队列的连接串
-     * @returns {String} 队列字符串
-     * @memberof Queue
-     */
-    toString(separator = "->") {
-        return this._dataSource.join(separator);
-    }
-
-    /**
-     * @description 清空队列
-     * @memberof Queue
+     * 清空字典中的所有元素
+     * @memberof Dictionary
      */
     clear() {
-        this._dataSource = [];
+        this._dataSource = new Array();
+    }
+
+    /**
+     * 该方法接受两个参数：键和值。键是值在字典中的索引
+     * @param {Number | String} key 键
+     * @param {*} value 值
+     * @memberof Dictionary
+     */
+    add(key, value) {
+        this._dataSource[key] = value;
+    }
+
+    /**
+     *  该方法以键作为参数，返回和其关联的值
+     * @param {Number | String} key
+     * @returns {*} 返回和键关联的值
+     * @memberof Dictionary
+     */
+    find(key) {
+        return this._dataSource[key];
+    }
+
+    /**
+     * 同时删掉键和与其关联的值
+     * @param {*} key 要删除的键
+     * @memberof Dictionary
+     */
+    remove(key) {
+        delete this._dataSource[key];
+    }
+
+    /**
+     * 字典的字符串形式
+     * @memberof Dictionary
+     */
+    toString() {
+        let strArr = [];
+        for (let key of Object.keys(this._dataSource)) {
+            strArr.push(`${key}: ${this._dataSource[key]}`);
+        }
+        return `{ ${strArr.join(", ")} }`;
+    }
+
+    /**
+     * 判断字典中是否存在key键，存在返回true，不存在返回false
+     * @param {*} key
+     * @memberof Dictionary
+     */
+    contains(key) {
+        return Object.keys(this._dataSource).includes(key);
+    }
+
+    /**
+     * 值的迭代器
+     * @generator
+     * @memberof Dictionary
+     * @yields Dictionary元素
+     */
+    *values() {
+        for (let key of Object.keys(this._dataSource)) {
+            yield { key, value: this._dataSource[key] };
+        }
     }
 }
 
-export default Queue;
+export default Dictionary;
 </code></pre>
         </article>
     </section>
